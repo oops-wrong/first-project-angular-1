@@ -2,16 +2,29 @@
 <html lang="en" ng-app="testShopApp" ng-strict-di>
   <head>
     <meta charset="utf-8">
-    <title>TShop - Test NG Shop</title>
-    <link rel="stylesheet" href="vendor.css" />
-    <link rel="stylesheet" href="app.css" />
+    <title>TShop - Test Ng Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vendor.css">
+    <link rel="stylesheet" href="app.css">
     <script src="vendor.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
 
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
+    <div class="container">
+      <div class="row">
+        <div class="container header">
+          <div class="row header__row">
+            <div class="col-md-7 header__headline headline">
+              <div class="h1 headline__title"><strong>TShop</strong> – Test Ng Shop</div>
+            </div>
+            <div class="col-md-4 col-md-offset-1 header__basket">
+              <t-basket></t-basket>
+            </div>
+          </div>
+        </div>
+        <div ng-view class="view-frame"></div>
+      </div>
     </div>
 
   </body>

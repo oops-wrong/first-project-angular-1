@@ -1,8 +1,10 @@
 (function () {
   'use strict';
 
-  angular.module('testShopApp', [
-    'ui.router',
-    'ngDialog'
-  ]);
+  angular
+    .module('testShopApp', [
+      'ui.router',
+      'ngDialog',
+      'tBasket'
+    ]);
 }());
