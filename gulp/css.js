@@ -37,7 +37,7 @@ gulp.task('build:css', function () {
 
 gulp.task('build:css:vendor', function () {
   return gulp.src(vendorFiles)
-    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(concat('vendor.css'))
     .pipe(cleanCSS())
     .pipe(sourcemaps.write())

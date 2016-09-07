@@ -42,7 +42,7 @@ gulp.task('build:js', function () {
 
 gulp.task('build:js:vendor', function () {
   return gulp.src(vendorFiles)
-    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(concat('vendor.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write())
