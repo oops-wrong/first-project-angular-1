@@ -1,0 +1,13 @@
+{
+  "app_dir": "./app/",
+  "build_dir": "dist",
+  "vendor_files": {
+    "js": [
+      "node_modules/jquery/dist/jquery.js",
+      "node_modules/angular/angular.js"
+    ],
+    "css": [
+      "node_modules/bootstrap/dist/css/bootstrap.css"
+    ]
+  }
+}
