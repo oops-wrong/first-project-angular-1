@@ -5,7 +5,7 @@
     .module('testShopApp', [
       'ui.router',
       'ngDialog',
-      'tBasket',
+      'basket',
       'core.good'
     ]);
 }());
