@@ -9,9 +9,17 @@
       controllerAs: 'vm'
     });
 
-  checkoutController.$inject = [];
+  checkoutController.$inject = ['page'];
 
-  function checkoutController() {
+  function checkoutController(page) {
     var vm = this;
+
+    activate();
+
+    ////////////////
+
+    function activate() {
+      page.setTitle('Checkout');
+    }
   }
 }());

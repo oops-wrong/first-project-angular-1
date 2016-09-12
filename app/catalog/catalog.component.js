@@ -9,9 +9,17 @@
       controllerAs: 'vm'
     });
 
-  catalogController.$inject = [];
+  catalogController.$inject = ['page'];
 
-  function catalogController() {
+  function catalogController(page) {
     var vm = this;
+
+    activate();
+
+    ////////////////
+
+    function activate() {
+      page.setTitle('Catalog of products');
+    }
   }
 }());

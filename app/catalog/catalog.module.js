@@ -2,5 +2,7 @@
   'use strict';
 
   angular
-    .module('catalog', []);
+    .module('catalog', [
+      'core.page'
+    ]);
 }());

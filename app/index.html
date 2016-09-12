@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" ng-app="testShopApp" data-ng-strict-di>
+<html lang="en" ng-app="testShopApp" ng-controller="PageController as page" data-ng-strict-di>
   <head>
     <meta charset="utf-8">
-    <title>TShop - Test Ng Shop</title>
+    <title data-ng-bind="page.getTitle()">TShop - Test Ng Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendor.css">
     <link rel="stylesheet" href="app.css">

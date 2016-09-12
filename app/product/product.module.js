@@ -3,6 +3,7 @@
 
   angular
     .module('product', [
+      'core.page',
       'ui.router'
     ]);
 }());

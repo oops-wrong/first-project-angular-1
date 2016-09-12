@@ -3,6 +3,7 @@
 
   angular
       .module('core', [
+        'core.page',
         'core.product'
       ]);
 }());

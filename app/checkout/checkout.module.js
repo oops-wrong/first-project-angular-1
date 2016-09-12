@@ -2,5 +2,7 @@
   'use strict';
 
   angular
-    .module('checkout', []);
+    .module('checkout', [
+      'core.page'
+    ]);
 }());

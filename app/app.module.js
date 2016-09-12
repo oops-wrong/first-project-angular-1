@@ -6,6 +6,7 @@
       'basket',
       'catalog',
       'checkout',
+      'core.page',
       'core.product',
       'ngDialog',
       'ngResource',
