@@ -6,7 +6,10 @@
     .component('catalog', {
       templateUrl: 'catalog/catalog.template.html',
       controller: CatalogController,
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      bindings: {
+        products: '<'
+      }
     });
 
   CatalogController.$inject = ['page'];

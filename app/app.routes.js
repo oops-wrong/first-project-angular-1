@@ -12,7 +12,10 @@
       {
         name: 'catalog',
         url: '/',
-        template: '<catalog></catalog>'
+        template: '<catalog products="$resolve.products"></catalog>',
+        resolve: {
+          products: productsPrep
+        }
       },
       {
         name: 'product',
@@ -29,5 +32,11 @@
     states.forEach(function (state) {
       $stateProvider.state(state);
     });
+  }
+
+  productsPrep.$inject = ['product'];
+
+  function productsPrep(product) {
+    return product.query().$promise;
   }
 }());
