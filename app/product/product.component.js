@@ -5,13 +5,13 @@
     .module('product')
     .component('product', {
       templateUrl: 'product/product.template.html',
-      controller: productController,
+      controller: ProductController,
       controllerAs: 'vm'
     });
 
-  productController.$inject = ['page', '$stateParams'];
+  ProductController.$inject = ['page', '$stateParams'];
 
-  function productController(page, $stateParams) {
+  function ProductController(page, $stateParams) {
     var vm = this;
 
     vm.productId = $stateParams.productId;

@@ -5,13 +5,13 @@
     .module('checkout')
     .component('checkout', {
       templateUrl: 'checkout/checkout.template.html',
-      controller: checkoutController,
+      controller: CheckoutController,
       controllerAs: 'vm'
     });
 
-  checkoutController.$inject = ['page'];
+  CheckoutController.$inject = ['page'];
 
-  function checkoutController(page) {
+  function CheckoutController(page) {
     var vm = this;
 
     activate();

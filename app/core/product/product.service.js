@@ -8,7 +8,7 @@
   productFactory.$inject = ['$resource'];
 
   function productFactory($resource) {
-    return $resource('phones/:phoneId.json', {}, {
+    return $resource('assets/phones/:phoneId.json', {}, {
       query: {
         isArray: true,
         method: 'GET',

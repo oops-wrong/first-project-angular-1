@@ -5,13 +5,13 @@
     .module('catalog')
     .component('catalog', {
       templateUrl: 'catalog/catalog.template.html',
-      controller: catalogController,
+      controller: CatalogController,
       controllerAs: 'vm'
     });
 
-  catalogController.$inject = ['page'];
+  CatalogController.$inject = ['page'];
 
-  function catalogController(page) {
+  function CatalogController(page) {
     var vm = this;
 
     activate();

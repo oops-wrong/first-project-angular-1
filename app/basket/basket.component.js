@@ -5,13 +5,13 @@
     .module('basket')
     .component('basket', {
       templateUrl: 'basket/basket.template.html',
-      controller: basketController,
+      controller: BasketController,
       controllerAs: 'vm'
     });
 
-  basketController.$inject = [];
+  BasketController.$inject = [];
 
-  function basketController() {
+  function BasketController() {
     var vm = this;
   }
 }());
