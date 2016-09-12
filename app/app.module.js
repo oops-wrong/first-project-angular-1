@@ -11,6 +11,7 @@
       'ngDialog',
       'ngResource',
       'product',
-      'ui.router'
+      'ui.router',
+      'zoomImg'
     ]);
 }());

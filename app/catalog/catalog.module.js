@@ -3,6 +3,7 @@
 
   angular
     .module('catalog', [
-      'core.page'
+      'core.page',
+      'zoomImg'
     ]);
 }());
