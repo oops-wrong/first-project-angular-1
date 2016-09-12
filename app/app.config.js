@@ -5,29 +5,29 @@
     .module('testShopApp')
     .config(config);
 
-    config.$inject = ['$stateProvider'];
+  config.$inject = ['$stateProvider'];
 
-    function config($stateProvider) {
-      var catalogState = {
+  function config($stateProvider) {
+    var states = [
+      {
         name: 'catalog',
         url: '/',
         template: '<catalog></catalog>'
-      };
-
-      var productState = {
+      },
+      {
         name: 'product',
-        url: '/{productId}',
+        url: '/catalog/{productId}',
         template: '<product></product>'
-      };
+      },
+      {
+        name: 'checkout',
+        url: '/checkout',
+        template: '<checkout></checkout>'
+      }
+    ];
 
-      var basketState = {
-        name: 'basket',
-        url: '/basket',
-        template: '<basket></basket>'
-      };
-
-      $stateProvider.state(catalogState);
-      $stateProvider.state(productState);
-      $stateProvider.state(basketState);
-    }
+    states.forEach(function (state) {
+      $stateProvider.state(state);
+    });
+  }
 }());

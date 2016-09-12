@@ -6,7 +6,7 @@
     .component('basket', {
       templateUrl: 'basket/basket.template.html',
       controller: basketController,
-      controllerAs: 'basket'
+      controllerAs: 'vm'
     });
 
   basketController.$inject = [];

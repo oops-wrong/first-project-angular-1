@@ -3,10 +3,13 @@
 
   angular
     .module('testShopApp', [
-      'ngResource',
-      'ui.router',
-      'ngDialog',
       'basket',
-      'core.product'
+      'catalog',
+      'checkout',
+      'core.product',
+      'ngDialog',
+      'ngResource',
+      'product',
+      'ui.router'
     ]);
 }());

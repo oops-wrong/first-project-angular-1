@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="testShopApp" ng-strict-di>
+<html lang="en" ng-app="testShopApp" data-ng-strict-di>
   <head>
     <meta charset="utf-8">
     <title>TShop - Test Ng Shop</title>
@@ -20,10 +20,19 @@
             </div>
             <div class="col-md-4 col-md-offset-1 header__basket">
               <basket></basket>
+
+              <a ui-sref="catalog" ui-sref-active="lead">catalog</a>
+              <a ui-sref="checkout" ui-sref-active="lead">checkout</a>
+              <a ui-sref="product" ui-sref-active="lead">product</a>
             </div>
           </div>
         </div>
-        <div ng-view class="view-frame"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <!--<div data-ui-view class="view-frame"></div>-->
+          <ui-view></ui-view>
+        </div>
       </div>
     </div>
 
