@@ -71,13 +71,10 @@
      * @returns {Object}
      */
     function getResource() {
-      return $resource('assets/phones/:phoneId.json', {}, {
+      return $resource('assets/phones/phones.json', {}, {
         query: {
           isArray: true,
-          method: 'GET',
-          params: {
-            phoneId: 'phones'
-          }
+          method: 'GET'
         }
       });
     }
