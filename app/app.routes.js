@@ -37,6 +37,6 @@
   productsPrep.$inject = ['product'];
 
   function productsPrep(product) {
-    return product.query().$promise;
+    return product.getQuery().$promise;
   }
 }());

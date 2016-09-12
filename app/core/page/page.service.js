@@ -17,10 +17,18 @@
 
     ////////////////
 
+    /**
+     * Get title text.
+     * @returns {string}
+     */
     function getTitle() {
       return title;
     }
 
+    /**
+     * Set title.
+     * @param newVal
+     */
     function setTitle(newVal) {
       title = newVal;
     }
