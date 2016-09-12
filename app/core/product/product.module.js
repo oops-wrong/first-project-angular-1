@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('core.good', [
+    .module('core.product', [
       'ngResource'
     ]);
 }());

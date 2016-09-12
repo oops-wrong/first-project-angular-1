@@ -3,9 +3,10 @@
 
   angular
     .module('testShopApp', [
+      'ngResource',
       'ui.router',
       'ngDialog',
       'basket',
-      'core.good'
+      'core.product'
     ]);
 }());

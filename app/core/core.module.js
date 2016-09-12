@@ -3,6 +3,6 @@
 
   angular
       .module('core', [
-        'core.good'
+        'core.product'
       ]);
 }());
