@@ -3,6 +3,7 @@
 
   angular
     .module('catalog', [
+      'core.order',
       'core.page',
       'zoomImg'
     ]);

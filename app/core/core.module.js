@@ -3,6 +3,7 @@
 
   angular
       .module('core', [
+        'core.order',
         'core.page',
         'core.product'
       ]);

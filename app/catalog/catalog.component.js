@@ -12,9 +12,9 @@
       }
     });
 
-  CatalogController.$inject = ['page'];
+  CatalogController.$inject = ['order', 'page'];
 
-  function CatalogController(page) {
+  function CatalogController(order, page) {
     var vm = this;
 
     activate();
