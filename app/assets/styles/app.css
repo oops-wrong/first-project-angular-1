@@ -1,0 +1,15 @@
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .products-list {
+    justify-content: center;
+  }
+}
+.product-item {
+  margin: 0 0 6rem;
+}
+.product-item__cost {
+  font-size: 1.7em;
+}

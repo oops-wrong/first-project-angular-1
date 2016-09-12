@@ -1,3 +1,18 @@
-<div class="col-md-4" ng-repeat="product in vm.products">
-  {{product.name}}
+<div class="products-list">
+  <div class="col-md-4 col-sm-6 text-center product-item" ng-repeat="product in vm.products">
+    <div class="product-item__img-container">
+      <img ng-src="{{::product.imageUrl}}"
+           alt="product.name"
+           class="img-responsive center-block">
+    </div>
+    <div class="h4" ng-bind="::product.name"></div>
+    <div class="row">
+      <div class="col-md-5 col-sm-12 text-right product-item__cost">
+        $<span class="cost" ng-bind="::product.cost"></span>
+      </div>
+      <div class="col-md-7 col-sm-12 text-left">
+        <button class="btn btn-success"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+      </div>
+    </div>
+  </div>
 </div>
