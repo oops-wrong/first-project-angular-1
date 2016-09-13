@@ -11,19 +11,70 @@
     var list = [];
 
     return {
-      addToCart: addToCart,
+      addToList: addToList,
+      createOrderItem: createOrderItem,
       getList: getList,
-      removeItem: removeItem
+      removeFromList: removeFromList
     };
 
     ////////////////
 
     /**
-     * Add to card an item.
+     * Add to cart list an order item.
      * @param {Object} item
+     * @returns {boolean}
      */
-    function addToCart(item) {
-      list.push(item);
+    function addToList(item) {
+      if (angular.isObject(item) && item.id) {
+        list.push(item);
+
+        return true;
+      }
+
+      return false;
+    }
+
+    /**
+     * Create new order item.
+     * @param {Object} data
+     * @returns {Object} - {id: <string>, count: <number>}
+     */
+    function createOrderItem(data) {
+      var defaultOptions = {
+        count: 1
+      };
+      var newItem = {};
+
+      if (!angular.isObject(data) || !data.id) {
+        return null;
+      }
+
+      angular.extend(newItem, defaultOptions, data);
+
+      return newItem;
+    }
+
+    /**
+     * Get order item by product id.
+     * @param {string} id
+     * @returns {Object}
+     */
+    function getItemById(id) {
+      var item = null;
+
+      list.some(function (elem) {
+        if (!angular.isObject(elem)) {
+          return true;
+        }
+
+        if (elem.id === id) {
+          item = elem;
+
+          return true;
+        }
+      });
+
+      return item;
     }
 
     /**
@@ -36,10 +87,24 @@
 
     /**
      * Remove a product from order list.
-     * @param {number} id
+     * @param {string} id - Product id
      */
-    function removeItem(id) {
-      delete list[id];
+    function removeFromList(id) {
+      var result = false;
+      var item = getItemById(id);
+      var index;
+
+      // Remove item from list
+      if (angular.isObject(item)) {
+        index = list.indexOf(item);
+
+        if (~index) {
+          list.splice(index, 1);
+          result = true;
+        }
+      }
+
+      return result;
     }
   }
 }());

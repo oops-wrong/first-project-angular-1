@@ -7,11 +7,14 @@
     </div>
     <div class="h4" ng-bind="::product.name"></div>
     <div class="row">
-      <div class="col-md-5 col-sm-12 text-right product-item__cost">
-        $<span class="cost" ng-bind="::product.cost"></span>
-      </div>
-      <div class="col-md-7 col-sm-12 text-left">
-        <button class="btn btn-success"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+      <div class="product-item__controls">
+        <span class="product-item__cost">$<span class="cost" ng-bind="::product.cost"></span></span>
+        <button class="btn btn-success product-item__btn product-item__btn--add" ng-click="vm.addToCart($event, product.id)">
+          <i class="fa fa-shopping-cart"></i> Add to cart
+        </button>
+        <button class="btn btn-info product-item__btn product-item__btn--remove" ng-click="vm.removeFromCart($event, product.id)">
+          <i class="fa fa-shopping-cart"></i> Remove from cart
+        </button>
       </div>
     </div>
   </div>

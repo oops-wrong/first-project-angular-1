@@ -10,6 +10,20 @@
 .product-item {
   margin: 0 0 6rem;
 }
+.product-item__controls {
+  display: flex;
+  justify-content: center;
+}
 .product-item__cost {
   font-size: 1.7em;
+  margin-right: 1em;
+}
+.product-item__btn--remove {
+  display: none;
+}
+.added .product-item__btn--add {
+  display: none;
+}
+.added .product-item__btn--remove {
+  display: block;
 }
