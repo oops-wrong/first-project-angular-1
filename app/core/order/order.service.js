@@ -13,6 +13,7 @@
     return {
       addToList: addToList,
       createOrderItem: createOrderItem,
+      getItemById: getItemById,
       getList: getList,
       removeFromList: removeFromList
     };

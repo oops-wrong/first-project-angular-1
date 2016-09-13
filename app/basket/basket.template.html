@@ -7,9 +7,12 @@
     <span class="basket__count">
       <span ng-bind="vm.count"></span> <span ng-bind="vm.countText"></span>
     </span>
-    на сумму <span class="basket__amount" ng-bind="vm.amount"></span> руб.
+    на сумму <span class="basket__amount" ng-bind="vm.amount"></span>$.
   </div>
   <div class="basket__to-checkout" ng-show="vm.count">
     <a ui-sref="checkout" ui-sref-active="hide" class="btn btn-default">К оплате</a>
+  </div>
+  <div class="basket__to-checkout" ng-show="vm.count">
+    <a ui-sref="catalog" ui-sref-active="hide" class="btn btn-default">Вернуться в каталог</a>
   </div>
 </div>

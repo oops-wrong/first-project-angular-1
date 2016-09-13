@@ -18,6 +18,7 @@
     var vm = this;
 
     vm.addToCart = addToCart;
+    vm.isAdded = isAdded;
     vm.removeFromCart = removeFromCart;
 
     activate();
@@ -34,12 +35,18 @@
      * @param {string} productId
      */
     function addToCart($event, productId) {
-      var $btn = $($event.target);
-      var $product = $btn.closest('.product-item');
       var newItem = order.createOrderItem({id: productId});
 
       order.addToList(newItem);
-      $product.addClass('added');
+    }
+
+    /**
+     * Check product for the presence in order list.
+     * @param {string} id
+     * @returns {boolean}
+     */
+    function isAdded(id) {
+      return angular.isObject(order.getItemById(id));
     }
 
     /**
@@ -48,11 +55,7 @@
      * @param {string} productId
      */
     function removeFromCart($event, productId) {
-      var $btn = $($event.target);
-      var $product = $btn.closest('.product-item');
-
       order.removeFromList(productId);
-      $product.removeClass('added');
     }
   }
 }());

@@ -1,3 +1,9 @@
+@media screen and (min-width: 1024px) {
+  body {
+    padding-left: calc(100vw - 100%);
+  }
+}
+
 .products-list {
   display: flex;
   flex-wrap: wrap;
@@ -36,4 +42,5 @@
 }
 .basket__container {
   margin-top: 1rem;
+  width: 100%;
 }
