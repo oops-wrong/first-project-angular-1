@@ -27,3 +27,13 @@
 .added .product-item__btn--remove {
   display: block;
 }
+
+.basket {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 8rem;
+}
+.basket__container {
+  margin-top: 1rem;
+}
