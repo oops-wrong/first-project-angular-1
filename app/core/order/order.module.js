@@ -2,5 +2,8 @@
   'use strict';
 
   angular
-    .module('core.order', []);
+    .module('core.order', [
+      'core.product',
+      'core.utils'
+    ]);
 }());

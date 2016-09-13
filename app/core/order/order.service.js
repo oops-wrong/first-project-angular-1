@@ -5,9 +5,9 @@
     .module('core.order')
     .factory('order', order);
 
-  order.$inject = [];
+  order.$inject = ['$rootScope'];
 
-  function order() {
+  function order($rootScope) {
     var list = [];
 
     return {
@@ -27,6 +27,11 @@
     function addToList(item) {
       if (angular.isObject(item) && item.id) {
         list.push(item);
+
+        $rootScope.$emit('order.add', {
+          id: item.id
+        });
+        $rootScope.$emit('order.change');
 
         return true;
       }
@@ -101,6 +106,11 @@
         if (~index) {
           list.splice(index, 1);
           result = true;
+
+          $rootScope.$emit('order.remove', {
+            id: id
+          });
+          $rootScope.$emit('order.change');
         }
       }
 
