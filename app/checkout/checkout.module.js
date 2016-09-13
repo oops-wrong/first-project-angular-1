@@ -3,6 +3,8 @@
 
   angular
     .module('checkout', [
-      'core.page'
+      'core.order',
+      'core.page',
+      'core.product'
     ]);
 }());
