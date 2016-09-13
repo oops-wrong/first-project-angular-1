@@ -9,6 +9,7 @@
       'core.order',
       'core.page',
       'core.product',
+      'core.utils',
       'ngDialog',
       'ngResource',
       'product',

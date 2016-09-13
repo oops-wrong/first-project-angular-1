@@ -5,6 +5,7 @@
       .module('core', [
         'core.order',
         'core.page',
-        'core.product'
+        'core.product',
+        'core.utils'
       ]);
 }());

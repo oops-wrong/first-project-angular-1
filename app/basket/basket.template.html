@@ -1,1 +1,12 @@
-basket component here
+<div class="basket">
+  <div class="baket__empty" ng-hide="vm.count">
+    Ваша корзина пуста.
+  </div>
+  <div class="basket__container" ng-show="vm.count">
+    В вашей корзине
+    <span class="basket__count">
+      <span ng-bind="vm.count"></span> <span ng-bind="vm.countText"></span>
+    </span>
+    на сумму <span class="basket__amount" ng-bind="vm.amount"></span> руб.
+  </div>
+</div>

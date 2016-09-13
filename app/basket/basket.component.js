@@ -9,9 +9,20 @@
       controllerAs: 'vm'
     });
 
-  BasketController.$inject = [];
+  BasketController.$inject = ['order', 'utils'];
 
-  function BasketController() {
+  function BasketController(order, utils) {
     var vm = this;
+
+    vm.count = 0;
+    vm.amount = 0;
+    vm.countText = '';
+
+    activate();
+
+    ////////////////
+
+    function activate() {
+    }
   }
 }());
