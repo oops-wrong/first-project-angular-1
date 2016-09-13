@@ -15,7 +15,8 @@
       createOrderItem: createOrderItem,
       getItemById: getItemById,
       getList: getList,
-      removeFromList: removeFromList
+      removeFromList: removeFromList,
+      updateOrderItem: updateOrderItem
     };
 
     ////////////////
@@ -111,6 +112,31 @@
           $rootScope.$emit('order.remove', {
             id: id
           });
+          $rootScope.$emit('order.change');
+        }
+      }
+
+      return result;
+    }
+
+    /**
+     * Update data in order item.
+     * @param {Object} data
+     * @returns {boolean}
+     */
+    function updateOrderItem(data) {
+      var result = false;
+      var id;
+      var item;
+
+      if (angular.isObject(data) || !data.id) {
+        id = data.id;
+        item = getItemById(id);
+
+        if (angular.isObject(item)) {
+          angular.merge(item, data);
+
+          $rootScope.$emit('order.update', data);
           $rootScope.$emit('order.change');
         }
       }

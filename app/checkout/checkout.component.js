@@ -26,8 +26,10 @@
       page.setTitle('Checkout');
       generateItemsList();
       initInputCounts();
+      initInputCountsChange();
 
-      $rootScope.$on('order.change', orderChanged);
+      $rootScope.$on('order.add', orderListChanged);
+      $rootScope.$on('order.remove', orderListChanged);
     }
 
     /**
@@ -40,15 +42,16 @@
       var $container = $btn.closest('.count-group');
       var $input = $container.find('.input-number');
       var inputVal = $input.val() * 1;
-      var result;
+      var count;
 
       if (!inputVal) {
         inputVal = 0;
       }
 
-      result = inputVal + value;
+      count = inputVal + value;
+      count = normalizeCountValue(count);
 
-      $input.val(normalizeCountValue(result));
+      $input.val(count);
       $input.trigger('change');
     }
 
@@ -73,7 +76,7 @@
     }
 
     /**
-     * Set change event to count inputs.
+     * Set keyup event to count inputs.
      */
     function initInputCounts() {
       $(function () {
@@ -81,9 +84,30 @@
 
         $inputs.on('keyup', function () {
           var $input = $(this);
+          var count = normalizeCountValue($input.val());
 
-          $input.val(normalizeCountValue($input.val()));
+          $input.val(count);
           $input.trigger('change');
+        });
+      });
+    }
+
+    /**
+     * Set change event to count inputs.
+     */
+    function initInputCountsChange() {
+      $(function () {
+        $(document).off('change', '.input-number');
+
+        $(document).on('change', '.input-number', function () {
+          var $input = $(this);
+          var id = $input.attr('data-item-id');
+          var count = $input.val();
+
+          order.updateOrderItem({
+            id: id,
+            count: count
+          });
         });
       });
     }
@@ -116,8 +140,9 @@
     /**
      * Order changed event handler.
      */
-    function orderChanged() {
+    function orderListChanged() {
       generateItemsList();
+      initInputCounts();
     }
 
     /**

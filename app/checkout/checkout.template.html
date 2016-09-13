@@ -18,7 +18,11 @@
             <span class="fa fa-minus"></span>
           </button>
         </div>
-        <input type="text" class="form-control input-number" ng-model="item.orderInfo.count" maxlength="2">
+        <input type="text"
+               class="form-control input-number"
+               data-item-id="{{::item.id}}"
+               ng-model="item.orderInfo.count"
+               maxlength="2">
         <div class="input-group-btn">
           <button type="button" class="btn btn-success" ng-click="vm.addCount($event, 1)">
             <span class="fa fa-plus"></span>

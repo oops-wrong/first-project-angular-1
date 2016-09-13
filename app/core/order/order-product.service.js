@@ -29,7 +29,7 @@
         productItem = product.getProduct(elem.id);
 
         if (angular.isObject(product) && angular.isNumber(productItem.cost)) {
-          amount += productItem.cost * productItem.count;
+          amount += productItem.cost * elem.count;
         }
       });
 
