@@ -47,10 +47,33 @@
           </div>
         </div>
       </div>
-    </div>
+    </div><!-- .checkout__items -->
 
     <div class="checkout__meta">
       Заказ на сумму <strong ng-bind="vm.amount"></strong>$
     </div>
-  </div>
+
+    <div class="checkout__form">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Оформление заказа</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="inputEmail">Email адрес</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="inputTel">Телефон</label>
+            <input type="tel" class="form-control" id="inputTel" placeholder="Телефон">
+          </div>
+          <div class="form-group">
+            <label for="inputComment">Комментарий к заказу</label>
+            <textarea class="form-control" id="inputComment" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Оставить заказ</button>
+        </div>
+      </div>
+    </div><!-- .checkout__form -->
+  </div><!-- .checkout__not-empty -->
 </div>

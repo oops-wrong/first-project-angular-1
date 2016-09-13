@@ -82,13 +82,13 @@
   padding: 0 2rem;
 }
 @media screen and (max-width: 1100px) {
-  .checkout {
+  .checkout__items {
     margin-left: 6.2rem;
   }
 }
 @media screen and (max-width: 640px) {
-  .checkout {
-    margin-top: 3rem;
+  .header {
+    margin-bottom: 3rem;
   }
   .checkout-item {
     flex-wrap: wrap;
@@ -104,7 +104,13 @@
     top: 24px;
   }
 }
-
+.checkout__items {
+  position: relative;
+}
 .checkout__meta {
   margin: 3rem 0 0;
+}
+.checkout__form {
+  margin: 3rem 0;
+  max-width: 500px;
 }
