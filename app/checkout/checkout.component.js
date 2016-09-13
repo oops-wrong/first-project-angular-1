@@ -9,12 +9,13 @@
       controllerAs: 'vm'
     });
 
-  CheckoutController.$inject = ['$rootScope', 'order', 'page', 'product'];
+  CheckoutController.$inject = ['$rootScope', 'order', 'orderProduct', 'page', 'product'];
 
-  function CheckoutController($rootScope, order, page, product) {
+  function CheckoutController($rootScope, order, orderProduct, page, product) {
     var vm = this;
 
     vm.addCount = addCount;
+    vm.amount = 0;
     vm.items = [];
     vm.removeItem = removeItem;
 
@@ -27,9 +28,11 @@
       generateItemsList();
       initInputCounts();
       initInputCountsChange();
+      orderChanged();
 
       $rootScope.$on('order.add', orderListChanged);
       $rootScope.$on('order.remove', orderListChanged);
+      $rootScope.$on('order.change', orderChanged);
     }
 
     /**
@@ -139,6 +142,13 @@
 
     /**
      * Order changed event handler.
+     */
+    function orderChanged() {
+      vm.amount = orderProduct.getAmount();
+    }
+
+    /**
+     * Order list changed (add or remove) event handler.
      */
     function orderListChanged() {
       generateItemsList();

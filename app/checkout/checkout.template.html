@@ -1,44 +1,56 @@
 <div class="checkout">
-  <div class="checkout-item" ng-repeat="item in vm.items">
-    <button class="btn btn-danger checkout-item__remove" ng-click="vm.removeItem(item.id)">
-      <i class="fa fa-times"></i>
-    </button>
-    <div class="checkout-item__title">
-      <div class="checkout-item__img-container flex-v-center">
-        <img ng-src="{{::item.imageUrl}}"
-             alt="item.name"
-             class="img-responsive center-block">
-      </div>
-      <div class="checkout-item__name flex-v-center" ng-bind="::item.name"></div>
-    </div>
-    <div class="checkout-item__count flex-v-center">
-      <div class="count-group input-group">
-        <div class="input-group-btn">
-          <button type="button" class="btn btn-danger" ng-click="vm.addCount($event, -1)">
-            <span class="fa fa-minus"></span>
-          </button>
+  <div class="checkout__empty" ng-hide="vm.items.length">
+    <div class="h4">Добавьте товар в корзину.</div>
+  </div>
+
+  <div class="checkout__not-empty" ng-show="vm.items.length">
+    <div class="checkout__items">
+      <div class="checkout-item" ng-repeat="item in vm.items">
+        <button class="btn btn-danger checkout-item__remove" ng-click="vm.removeItem(item.id)">
+          <i class="fa fa-times"></i>
+        </button>
+        <div class="checkout-item__title">
+          <div class="checkout-item__img-container flex-v-center">
+            <img ng-src="{{::item.imageUrl}}"
+                 alt="item.name"
+                 class="img-responsive center-block">
+          </div>
+          <div class="checkout-item__name flex-v-center" ng-bind="::item.name"></div>
         </div>
-        <input type="text"
-               class="form-control input-number"
-               data-item-id="{{::item.id}}"
-               ng-model="item.orderInfo.count"
-               maxlength="2">
-        <div class="input-group-btn">
-          <button type="button" class="btn btn-success" ng-click="vm.addCount($event, 1)">
-            <span class="fa fa-plus"></span>
-          </button>
+        <div class="checkout-item__count flex-v-center">
+          <div class="count-group input-group">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-danger" ng-click="vm.addCount($event, -1)">
+                <span class="fa fa-minus"></span>
+              </button>
+            </div>
+            <input type="text"
+                   class="form-control input-number"
+                   data-item-id="{{::item.id}}"
+                   ng-model="item.orderInfo.count"
+                   maxlength="2">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-success" ng-click="vm.addCount($event, 1)">
+                <span class="fa fa-plus"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="checkout-item__amount amount flex-v-center">
+          <div class="amount__container">
+            <strong class="amount__sum" ng-bind="item.cost * item.orderInfo.count"></strong>$
+            <small class="amount__with-count" ng-show="item.orderInfo.count > 1">
+              (<span class="amount__apiece" ng-bind="item.cost"></span>$
+              ×
+              <span class="amount__count" ng-bind="item.orderInfo.count"></span>)
+            </small>
+          </div>
         </div>
       </div>
     </div>
-    <div class="checkout-item__amount amount flex-v-center">
-      <div class="amount__container">
-        <strong class="amount__sum" ng-bind="item.cost * item.orderInfo.count"></strong>$
-        <small class="amount__with-count" ng-show="item.orderInfo.count > 1">
-          (<span class="amount__apiece" ng-bind="item.cost"></span>$
-          ×
-          <span class="amount__count" ng-bind="item.orderInfo.count"></span>)
-        </small>
-      </div>
+
+    <div class="checkout__meta">
+      Заказ на сумму <strong ng-bind="vm.amount"></strong>$
     </div>
   </div>
 </div>
