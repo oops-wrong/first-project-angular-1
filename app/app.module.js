@@ -10,6 +10,7 @@
       'core.page',
       'core.product',
       'core.utils',
+      'ngAnimate',
       'ngDialog',
       'ngResource',
       'product',

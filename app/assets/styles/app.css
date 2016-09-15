@@ -1,3 +1,18 @@
+.view-frame.ng-enter {
+  opacity: 0;
+  transition: 0.25s;
+}
+.view-frame.ng-enter-active {
+  opacity: 1;
+}
+.view-frame.ng-leave {
+  opacity: 1;
+  transition: 0.25s;
+}
+.view-frame.ng-leave-active {
+  opacity: 0;
+}
+
 @media screen and (min-width: 1024px) {
   body {
     padding-left: calc(100vw - 100%);
