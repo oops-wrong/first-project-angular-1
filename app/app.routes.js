@@ -5,9 +5,14 @@
     .module('testShopApp')
     .config(config);
 
-  config.$inject = ['$stateProvider'];
+  config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 
-  function config($stateProvider) {
+  function config($locationProvider, $stateProvider, $urlRouterProvider) {
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('!');
+
+    $urlRouterProvider.otherwise('/');
+
     var states = [
       {
         name: 'catalog',
