@@ -1,3 +1,117 @@
-product component here
-<br>
-Product id = {{vm.productId}}
+<div class="phone-images">
+  <img ng-src="{{image}}" class="phone"
+       ng-class="{selected: image === detail.mainImageUrl}"
+       ng-repeat="image in vm.productDetails.images" />
+</div>
+
+<h1>{{vm.productDetails.name}}</h1>
+
+<p>{{vm.productDetails.description}}</p>
+
+<ul class="phone-thumbs">
+  <li ng-repeat="image in vm.productDetails.images">
+    <img ng-src="{{image}}" ng-click="detail.setImage(image)" />
+  </li>
+</ul>
+
+<ul class="specs">
+  <li>
+    <span>Availability and Networks</span>
+    <dl>
+      <dt>Availability</dt>
+      <dd ng-repeat="availability in vm.productDetails.availability">{{availability}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Battery</span>
+    <dl>
+      <dt>Type</dt>
+      <dd>{{vm.productDetails.battery.type}}</dd>
+      <dt>Talk Time</dt>
+      <dd>{{vm.productDetails.battery.talkTime}}</dd>
+      <dt>Standby time (max)</dt>
+      <dd>{{vm.productDetails.battery.standbyTime}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Storage and Memory</span>
+    <dl>
+      <dt>RAM</dt>
+      <dd>{{vm.productDetails.storage.ram}}</dd>
+      <dt>Internal Storage</dt>
+      <dd>{{vm.productDetails.storage.flash}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Connectivity</span>
+    <dl>
+      <dt>Network Support</dt>
+      <dd>{{vm.productDetails.connectivity.cell}}</dd>
+      <dt>WiFi</dt>
+      <dd>{{vm.productDetails.connectivity.wifi}}</dd>
+      <dt>Bluetooth</dt>
+      <dd>{{vm.productDetails.connectivity.bluetooth}}</dd>
+      <dt>Infrared</dt>
+      <dd>{{vm.productDetails.connectivity.infrared}}</dd>
+      <dt>GPS</dt>
+      <dd>{{vm.productDetails.connectivity.gps}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Android</span>
+    <dl>
+      <dt>OS Version</dt>
+      <dd>{{vm.productDetails.android.os}}</dd>
+      <dt>UI</dt>
+      <dd>{{vm.productDetails.android.ui}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Size and Weight</span>
+    <dl>
+      <dt>Dimensions</dt>
+      <dd ng-repeat="dim in vm.productDetails.sizeAndWeight.dimensions">{{dim}}</dd>
+      <dt>Weight</dt>
+      <dd>{{vm.productDetails.sizeAndWeight.weight}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Display</span>
+    <dl>
+      <dt>Screen size</dt>
+      <dd>{{vm.productDetails.display.screenSize}}</dd>
+      <dt>Screen resolution</dt>
+      <dd>{{vm.productDetails.display.screenResolution}}</dd>
+      <dt>Touch screen</dt>
+      <dd>{{vm.productDetails.display.touchScreen}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Hardware</span>
+    <dl>
+      <dt>CPU</dt>
+      <dd>{{vm.productDetails.hardware.cpu}}</dd>
+      <dt>USB</dt>
+      <dd>{{vm.productDetails.hardware.usb}}</dd>
+      <dt>Audio / headphone jack</dt>
+      <dd>{{vm.productDetails.hardware.audioJack}}</dd>
+      <dt>FM Radio</dt>
+      <dd>{{vm.productDetails.hardware.fmRadio}}</dd>
+      <dt>Accelerometer</dt>
+      <dd>{{vm.productDetails.hardware.accelerometer}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Camera</span>
+    <dl>
+      <dt>Primary</dt>
+      <dd>{{vm.productDetails.camera.primary}}</dd>
+      <dt>Features</dt>
+      <dd>{{vm.productDetails.camera.features.join(', ')}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Additional Features</span>
+    <dd>{{vm.productDetails.additionalFeatures}}</dd>
+  </li>
+</ul>

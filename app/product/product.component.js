@@ -6,7 +6,10 @@
     .component('product', {
       templateUrl: 'product/product.template.html',
       controller: ProductController,
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      bindings: {
+        productDetails: '<'
+      }
     });
 
   ProductController.$inject = ['page', '$stateParams'];

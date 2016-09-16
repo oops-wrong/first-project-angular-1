@@ -9,6 +9,7 @@
 
   function productFactory($resource) {
     var products = [];
+    var productDetails = [];
 
     return {
       getQuery: getQuery,
@@ -27,14 +28,22 @@
     }
 
     /**
-     * Get result of $resource.query() and remember result to product list.
+     * Get result of $resource.query() and remember result to product list if no productId getting.
+     * @param {string} productId
      * @returns {*|{isArray, method, params}|{method, isArray}}
      */
-    function getQuery() {
-      var resource = getResource();
-      var query = resource.query();
+    function getQuery(productId) {
+      var resource;
+      var query;
 
-      query.$promise.then(addProducts);
+      if (productId) {
+        resource = getResourceOfDetails();
+        query = resource.get({productId: productId});
+      } else {
+        resource = getResource();
+        query = resource.query();
+        query.$promise.then(addProducts);
+      }
 
       return query;
     }
@@ -67,11 +76,24 @@
     }
 
     /**
-     * Get instance of $resource service.
+     * Get instance of $resource service with products list data.
      * @returns {Object}
      */
     function getResource() {
       return $resource('assets/phones/phones.json', {}, {
+        query: {
+          isArray: true,
+          method: 'GET'
+        }
+      });
+    }
+
+    /**
+     * Get instance of $resource service with a product data.
+     * @returns {Object}
+     */
+    function getResourceOfDetails() {
+      return $resource('assets/phones/:productId.json', {}, {
         query: {
           isArray: true,
           method: 'GET'

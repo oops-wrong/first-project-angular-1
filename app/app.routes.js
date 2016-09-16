@@ -35,16 +35,11 @@
       {
         isDialog: true,
         name: 'product',
-        onEnter: ['$state', 'ngDialog', function($state, ngDialog) {
-          ngDialog.open({
-            plain: true,
-            // template: '<checkout></checkout>'
-            template: '<product></product>'
-          }).closePromise.finally(function() {
-            $state.go('^');
-          });
-        }],
+        onEnter: openModal,
         parent: 'catalog',
+        resolve: {
+          productDetails: productDetailsPrep
+        },
         url: 'catalog/{productId}'
       },
       {
@@ -59,6 +54,30 @@
     });
   }
 
+  openModal.$inject = ['$rootScope', '$state', 'ngDialog', 'productDetails'];
+
+  /**
+   * Open modal.
+   * @param {Object} $rootScope
+   * @param {Object} $state
+   * @param {Object} ngDialog
+   * @param {Object} productDetails
+   */
+  function openModal($rootScope, $state, ngDialog, productDetails) {
+    var newScope = $rootScope.$new(true);
+
+    newScope.productDetails = productDetails;
+
+    ngDialog.open({
+      plain: true,
+      scope: newScope,
+      // template: '<checkout></checkout>'
+      template: '<product product-details="productDetails"></product>'
+    }).closePromise.finally(function() {
+      $state.go('^');
+    });
+  }
+
   productsPrep.$inject = ['product'];
 
   /**
@@ -68,6 +87,12 @@
    */
   function productsPrep(product) {
     return product.getQuery().$promise;
+  }
+
+  productDetailsPrep.$inject = ['$stateParams', 'product'];
+
+  function productDetailsPrep($stateParams, product) {
+    return product.getQuery($stateParams.productId).$promise;
   }
 
   /////////////////////////////////////////////////////////////
