@@ -16,6 +16,7 @@
 @media screen and (min-width: 1024px) {
   body {
     padding-left: calc(100vw - 100%);
+    padding-right: 0 !important;
   }
 }
 

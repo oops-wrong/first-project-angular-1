@@ -17,6 +17,7 @@
     vm.addCount = addCount;
     vm.amount = 0;
     vm.items = [];
+    vm.changeInput = changeInput;
     vm.removeItem = removeItem;
 
     activate();
@@ -26,8 +27,6 @@
     function activate() {
       page.setTitle('Checkout');
       generateItemsList();
-      initInputCounts();
-      initInputCountsChange();
       orderChanged();
 
       $rootScope.$on('order.add', orderListChanged);
@@ -59,7 +58,23 @@
     }
 
     /**
-     * Generate list of checkout items.
+     * Change input handler.
+     * @param orderInfo
+     */
+    function changeInput(orderInfo) {
+      var count = normalizeCountValue(orderInfo.count);
+      var id = orderInfo.id;
+
+      orderInfo.count = count;
+
+      order.updateOrderItem({
+        id: id,
+        count: count
+      });
+    }
+
+    /**
+     * Generate list of checkout items combining product and order items.
      */
     function generateItemsList() {
       var orderList = order.getList();
@@ -75,43 +90,6 @@
           checkoutItem['orderInfo'] = elem;
           vm.items.push(checkoutItem);
         }
-      });
-    }
-
-    /**
-     * Set keyup event to count inputs.
-     */
-    function initInputCounts() {
-      $(function () {
-        var $inputs = $('.input-number');
-
-        $inputs.on('keyup', function () {
-          var $input = $(this);
-          var count = normalizeCountValue($input.val());
-
-          $input.val(count);
-          $input.trigger('change');
-        });
-      });
-    }
-
-    /**
-     * Set change event to count inputs.
-     */
-    function initInputCountsChange() {
-      $(function () {
-        $(document).off('change', '.input-number');
-
-        $(document).on('change', '.input-number', function () {
-          var $input = $(this);
-          var id = $input.attr('data-item-id');
-          var count = $input.val();
-
-          order.updateOrderItem({
-            id: id,
-            count: count
-          });
-        });
       });
     }
 
@@ -152,7 +130,6 @@
      */
     function orderListChanged() {
       generateItemsList();
-      initInputCounts();
     }
 
     /**

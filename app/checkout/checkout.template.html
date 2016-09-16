@@ -27,6 +27,7 @@
             <input type="text"
                    class="form-control input-number"
                    data-item-id="{{::item.id}}"
+                   ng-change="vm.changeInput(item.orderInfo)"
                    ng-model="item.orderInfo.count"
                    maxlength="2">
             <div class="input-group-btn">
