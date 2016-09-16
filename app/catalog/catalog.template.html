@@ -7,7 +7,7 @@
            alt="product.name"
            class="img-responsive center-block">
     </div>
-    <div class="h4" ng-bind="::product.name"></div>
+    <a class="h4" ng-bind="::product.name" ui-sref="product({productId: product.id})"></a>
     <div class="row">
       <div class="product-item__controls">
         <span class="product-item__cost">$<span class="cost" ng-bind="::product.cost"></span></span>
