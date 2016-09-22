@@ -9,7 +9,6 @@
 
   function productFactory($resource) {
     var products = [];
-    var productDetails = [];
 
     return {
       getQuery: getQuery,

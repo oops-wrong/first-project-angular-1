@@ -9,9 +9,9 @@
       controllerAs: 'vm'
     });
 
-  BasketController.$inject = ['$scope', '$rootScope', 'orderProduct'];
+  BasketController.$inject = ['$rootScope', 'orderProduct'];
 
-  function BasketController($scope, $rootScope, orderProduct) {
+  function BasketController($rootScope, orderProduct) {
     var vm = this;
 
     vm.amount = 0;
@@ -33,12 +33,6 @@
       vm.amount = orderProduct.getAmount();
       vm.count = orderProduct.getListLength();
       vm.countText = orderProduct.getDeclCountText(vm.count);
-
-      // setTimeout(function () {
-      //   if(!$scope.$$phase) {
-      //     $scope.$digest();
-      //   }
-      // }, 0);
     }
   }
 }());

@@ -31,10 +31,9 @@
 
     /**
      * Add to cart product item handler.
-     * @param {Object} $event
      * @param {string} productId
      */
-    function addToCart($event, productId) {
+    function addToCart(productId) {
       var newItem = order.createOrderItem({id: productId});
 
       order.addToList(newItem);

@@ -16,8 +16,8 @@
 
     vm.addCount = addCount;
     vm.amount = 0;
-    vm.items = [];
     vm.changeInput = changeInput;
+    vm.items = [];
     vm.removeItem = removeItem;
 
     activate();

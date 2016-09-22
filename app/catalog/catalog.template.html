@@ -11,7 +11,7 @@
     <div class="row">
       <div class="product-item__controls">
         <span class="product-item__cost">$<span class="cost" ng-bind="::product.cost"></span></span>
-        <button class="btn btn-success product-item__btn product-item__btn--add" ng-click="vm.addToCart($event, product.id)">
+        <button class="btn btn-success product-item__btn product-item__btn--add" ng-click="vm.addToCart(product.id)">
           <i class="fa fa-shopping-cart"></i> В корзину
         </button>
         <button class="btn btn-info product-item__btn product-item__btn--remove" ng-click="vm.removeFromCart($event, product.id)">
